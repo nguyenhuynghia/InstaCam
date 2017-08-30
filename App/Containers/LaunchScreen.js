@@ -1,28 +1,51 @@
 import React from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
-import { Images } from '../Themes'
-
+import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { Colors, Metrics } from '../Themes'
+import { Actions } from 'react-native-router-flux'
 // Styles
-import styles from './Styles/LaunchScreenStyles'
 
 export default class LaunchScreen extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      pickImageData: null
+    }
+  }
+
   render () {
+    let pickImage = this.state.pickImageData
     return (
-      <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <ScrollView style={styles.container}>
-          <View style={styles.centered}>
-            <Image source={Images.launch} style={styles.logo} />
-          </View>
-
-          <View style={styles.section} >
-            <Image source={Images.ready} />
-            <Text style={styles.sectionText}>
-              {"This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite."}
-            </Text>
-          </View>
-
-        </ScrollView>
+      <View style={{width: Metrics.screenWidth, height: Metrics.screenHeight, top: Metrics.navBarHeight}}>
+        <Image style={{
+          height: Metrics.screenWidth,
+          height: Metrics.screenWidth,
+          marginBottom: 10,
+          backgroundColor: Colors.cloud
+        }}
+               source={{uri: pickImage || ' '}}/>
+        <View style={{width: Metrics.screenWidth, height: 100, justifyContent: 'center', alignItems: 'center'}}>
+          <TouchableOpacity style={{
+            width: 200,
+            height: 50,
+            backgroundColor: Colors.facebook,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderColor: 'black',
+            borderRadius: 10
+          }} onPress={() => {
+            Actions.imagePickerScreen({
+              didFinishPickImage: (image) => {
+                console.log(image)
+                this.setState({
+                  pickImageData: image
+                })
+                Actions.pop()
+              }
+            })
+          }}>
+            <Text>Open image picker</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }

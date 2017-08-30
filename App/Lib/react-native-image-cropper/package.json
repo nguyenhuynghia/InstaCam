@@ -1,0 +1,109 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-image-cropper@^0.3.0",
+        "scope": null,
+        "escapedName": "react-native-image-cropper",
+        "name": "react-native-image-cropper",
+        "rawSpec": "^0.3.0",
+        "spec": ">=0.3.0 <0.4.0",
+        "type": "range"
+      },
+      "/Users/nghianh/Desktop/Workspace/HBLab/Reviyou"
+    ]
+  ],
+  "_from": "react-native-image-cropper@>=0.3.0 <0.4.0",
+  "_id": "react-native-image-cropper@0.3.0",
+  "_inCache": true,
+  "_location": "/react-native-image-cropper",
+  "_nodeVersion": "6.9.4",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/react-native-image-cropper-0.3.0.tgz_1485436752182_0.054911663522943854"
+  },
+  "_npmUser": {
+    "name": "stoffern",
+    "email": "kristoffer.klevenberg@gmail.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-image-cropper@^0.3.0",
+    "scope": null,
+    "escapedName": "react-native-image-cropper",
+    "name": "react-native-image-cropper",
+    "rawSpec": "^0.3.0",
+    "spec": ">=0.3.0 <0.4.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-image-cropper/-/react-native-image-cropper-0.3.0.tgz",
+  "_shasum": "2c3af8ceb96d4f8fa5f03c75ca29e0802174649d",
+  "_shrinkwrap": null,
+  "_spec": "react-native-image-cropper@^0.3.0",
+  "_where": "/Users/nghianh/Desktop/Workspace/HBLab/Reviyou",
+  "author": {
+    "name": "Kristoffer Klevenberg"
+  },
+  "bugs": {
+    "url": "https://github.com/stoffern/react-native-image-cropper/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "gl-react": "^2.2.8",
+    "gl-react-image": "0.0.2",
+    "gl-react-native": "^2.38.0"
+  },
+  "description": "Crop image in React Native using pan to move, pinch to zoom -> capture to file or base64",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.11.1",
+    "eslint-plugin-react": "^6.7.1",
+    "semantic-release": "^6.3.2"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dist": {
+    "shasum": "2c3af8ceb96d4f8fa5f03c75ca29e0802174649d",
+    "tarball": "https://registry.npmjs.org/react-native-image-cropper/-/react-native-image-cropper-0.3.0.tgz"
+  },
+  "gitHead": "b26273c3d2fbf920ef998a6ed6612a71f2ff70bf",
+  "homepage": "https://github.com/stoffern/react-native-image-cropper#readme",
+  "keywords": [
+    "imagecropper",
+    "image",
+    "crop",
+    "react-native",
+    "gl-react-native",
+    "image-croppper"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "maintainers": [
+    {
+      "name": "stoffern",
+      "email": "kristoffer.klevenberg@gmail.com"
+    }
+  ],
+  "name": "react-native-image-cropper",
+  "optionalDependencies": {},
+  "readme": "# react-native-image-cropper ![](https://img.shields.io/npm/v/react-native-image-cropper.svg) ![](https://img.shields.io/badge/gl--react->= 2.1-05F561.svg) ![](https://img.shields.io/badge/gl--react--native->= 2.28.0-05F561.svg) ![](https://img.shields.io/badge/gl--react--native->= 2.28.0-05F561.svg)\n\nThis Image cropper is based on the gl-react-native [library](https://github.com/ProjectSeptemberInc/gl-react-native)\n\n![Cropping View](https://media.giphy.com/media/l46CDga4bxZccVxWU/giphy.gif)\n\n## Installation\n```\nnpm i -S react-native-image-cropper\n```\nor\n```\nyarn add react-native-image-cropper\n```\n\n## Requirements\n- `gl-react` You need to install gl-react. `npm i -S gl-react` \n- `gl-react-native` You need to install gl-react-native and link the repo in RN. `npm i -S gl-react-native & rnpm link` \n- `react-native` Android requires you to have RN 0.28 or higher!\n\n#### `{ImageCrop}` Props\n- `image` **(required)**: link to image that should be cropped.\n- `cropHeight` **(required)**: height of the image in cropped size.\n- `cropWidth` **(required)**: width of the image in cropped size.\n- `zoom`: range 0 - 100 setting zoom value. where 100 = full zoom. (default: 0)\n- `maxZoom`: max zoom value, should be bigger than minZoom value (default: 100)\n- `minZoom`: min zoom value, should be smaller than maxZoom value (default: 0) \n- `panToMove`: Use pan to move image? (default: true)\n- `pinchToZoom` Use pinch to zoom image? (default: true)\n- `quality`: a value from 0 to 1 to describe the quality of the snapshot. 0 means 0% (most compressed) and 1 means 100% (best quality). (default: 1)\n- `type`: the file type default value is **\"png\"**, **\"jpg\"** is also supported. Refer to implementations to see more supported values. (default: jpg)\n- `pixelRatio`: the pixel ratio to use for the rendering. By default the screen pixel scale will be used.\n\n#### `{ImageCrop}` Functions\n- `crop()`: returns a base64 encoded image.\n\n\n## Example\n```js\n...\nimport {ImageCrop} from 'react-native-image-cropper'\n\n\n...\nrender() {\n  return (\n  <View>\n    <ImageCrop \n      ref={'cropper'}\n      image={this.state.image}\n      cropHeight={this.state.height}\n      cropWidth={this.state.width}\n      zoom={this.state.zoom}\n      maxZoom={80}\n      minZoom={20}\n      panToMove={true}\n      pinchToZoom={true}\n    />\n    <Text onPress={this.capture()}>Capture()</Text>\n  </View>\n    \n  )\n} \ncapture(){\n  this.refs.cropper.crop()\n  .then(base64 => console.log(base64))\n}\n...\n\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stoffern/react-native-image-cropper.git"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "eslint ."
+  },
+  "version": "0.3.0"
+}

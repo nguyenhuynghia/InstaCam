@@ -126,6 +126,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-crop-picker')
+    compile project(':react-native-fs')
+    compile project(':react-native-camera-kit')
+    compile project(':gl-react-native')
     compile project(':react-native-i18n')
     compile project(':react-native-device-info')
     compile project(':react-native-config')
